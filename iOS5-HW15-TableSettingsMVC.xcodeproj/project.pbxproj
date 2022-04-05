@@ -8,8 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FFA0632E27FC1A7E00DC9ADA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA0632D27FC1A7E00DC9ADA /* AppDelegate.swift */; };
-		FFA0633027FC1A7E00DC9ADA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA0632F27FC1A7E00DC9ADA /* SceneDelegate.swift */; };
-		FFA0633227FC1A7E00DC9ADA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA0633127FC1A7E00DC9ADA /* ViewController.swift */; };
+		FFA0633227FC1A7E00DC9ADA /* TableSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA0633127FC1A7E00DC9ADA /* TableSettingsController.swift */; };
 		FFA0633527FC1A7E00DC9ADA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFA0633327FC1A7E00DC9ADA /* Main.storyboard */; };
 		FFA0633727FC1A8500DC9ADA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FFA0633627FC1A8500DC9ADA /* Assets.xcassets */; };
 		FFA0633A27FC1A8500DC9ADA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFA0633827FC1A8500DC9ADA /* LaunchScreen.storyboard */; };
@@ -18,8 +17,7 @@
 /* Begin PBXFileReference section */
 		FFA0632A27FC1A7E00DC9ADA /* iOS5-HW15-TableSettingsMVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS5-HW15-TableSettingsMVC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFA0632D27FC1A7E00DC9ADA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FFA0632F27FC1A7E00DC9ADA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FFA0633127FC1A7E00DC9ADA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FFA0633127FC1A7E00DC9ADA /* TableSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSettingsController.swift; sourceTree = "<group>"; };
 		FFA0633427FC1A7E00DC9ADA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FFA0633627FC1A8500DC9ADA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FFA0633927FC1A8500DC9ADA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,15 +54,70 @@
 		FFA0632C27FC1A7E00DC9ADA /* iOS5-HW15-TableSettingsMVC */ = {
 			isa = PBXGroup;
 			children = (
-				FFA0632D27FC1A7E00DC9ADA /* AppDelegate.swift */,
-				FFA0632F27FC1A7E00DC9ADA /* SceneDelegate.swift */,
-				FFA0633127FC1A7E00DC9ADA /* ViewController.swift */,
+				FFA0634227FC1B1400DC9ADA /* Resources */,
+				FFA0634127FC1B0C00DC9ADA /* Sources */,
+			);
+			path = "iOS5-HW15-TableSettingsMVC";
+			sourceTree = "<group>";
+		};
+		FFA0634127FC1B0C00DC9ADA /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				FFA0634327FC1B2900DC9ADA /* App */,
+				FFA0634427FC1B3100DC9ADA /* Scenes */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		FFA0634227FC1B1400DC9ADA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				FFA0633327FC1A7E00DC9ADA /* Main.storyboard */,
 				FFA0633627FC1A8500DC9ADA /* Assets.xcassets */,
 				FFA0633827FC1A8500DC9ADA /* LaunchScreen.storyboard */,
 				FFA0633B27FC1A8500DC9ADA /* Info.plist */,
 			);
-			path = "iOS5-HW15-TableSettingsMVC";
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FFA0634327FC1B2900DC9ADA /* App */ = {
+			isa = PBXGroup;
+			children = (
+				FFA0632D27FC1A7E00DC9ADA /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FFA0634427FC1B3100DC9ADA /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				FFA0634727FC1B4A00DC9ADA /* Model */,
+				FFA0634627FC1B4600DC9ADA /* View */,
+				FFA0634527FC1B3F00DC9ADA /* Controller */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		FFA0634527FC1B3F00DC9ADA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FFA0633127FC1A7E00DC9ADA /* TableSettingsController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FFA0634627FC1B4600DC9ADA /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FFA0634727FC1B4A00DC9ADA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +191,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FFA0633227FC1A7E00DC9ADA /* ViewController.swift in Sources */,
+				FFA0633227FC1A7E00DC9ADA /* TableSettingsController.swift in Sources */,
 				FFA0632E27FC1A7E00DC9ADA /* AppDelegate.swift in Sources */,
-				FFA0633027FC1A7E00DC9ADA /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +341,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4Q633P5RZ5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS5-HW15-TableSettingsMVC/Info.plist";
+				INFOPLIST_FILE = "iOS5-HW15-TableSettingsMVC/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -317,7 +369,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4Q633P5RZ5;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "iOS5-HW15-TableSettingsMVC/Info.plist";
+				INFOPLIST_FILE = "iOS5-HW15-TableSettingsMVC/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
