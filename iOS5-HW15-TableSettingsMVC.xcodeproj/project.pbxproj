@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF72C41A27FC4256009343D6 /* TableSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72C41927FC4256009343D6 /* TableSettingsView.swift */; };
+		FF72C41C27FC427B009343D6 /* CommonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72C41B27FC427B009343D6 /* CommonTableViewCell.swift */; };
+		FF72C41E27FC428F009343D6 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72C41D27FC428F009343D6 /* SwitchTableViewCell.swift */; };
+		FF72C42027FC42A1009343D6 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF72C41F27FC42A1009343D6 /* ImageTableViewCell.swift */; };
 		FFA0632E27FC1A7E00DC9ADA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA0632D27FC1A7E00DC9ADA /* AppDelegate.swift */; };
 		FFA0633227FC1A7E00DC9ADA /* TableSettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA0633127FC1A7E00DC9ADA /* TableSettingsController.swift */; };
 		FFA0633527FC1A7E00DC9ADA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FFA0633327FC1A7E00DC9ADA /* Main.storyboard */; };
@@ -17,6 +21,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FF72C41927FC4256009343D6 /* TableSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSettingsView.swift; sourceTree = "<group>"; };
+		FF72C41B27FC427B009343D6 /* CommonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonTableViewCell.swift; sourceTree = "<group>"; };
+		FF72C41D27FC428F009343D6 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		FF72C41F27FC42A1009343D6 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		FFA0632A27FC1A7E00DC9ADA /* iOS5-HW15-TableSettingsMVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS5-HW15-TableSettingsMVC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FFA0632D27FC1A7E00DC9ADA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FFA0633127FC1A7E00DC9ADA /* TableSettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSettingsController.swift; sourceTree = "<group>"; };
@@ -113,6 +121,10 @@
 		FFA0634627FC1B4600DC9ADA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FF72C41927FC4256009343D6 /* TableSettingsView.swift */,
+				FF72C41B27FC427B009343D6 /* CommonTableViewCell.swift */,
+				FF72C41D27FC428F009343D6 /* SwitchTableViewCell.swift */,
+				FF72C41F27FC42A1009343D6 /* ImageTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -197,8 +209,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF72C41C27FC427B009343D6 /* CommonTableViewCell.swift in Sources */,
+				FF72C42027FC42A1009343D6 /* ImageTableViewCell.swift in Sources */,
 				FFA0634927FC1C2500DC9ADA /* TableSettingsModel.swift in Sources */,
+				FF72C41E27FC428F009343D6 /* SwitchTableViewCell.swift in Sources */,
 				FFA0633227FC1A7E00DC9ADA /* TableSettingsController.swift in Sources */,
+				FF72C41A27FC4256009343D6 /* TableSettingsView.swift in Sources */,
 				FFA0632E27FC1A7E00DC9ADA /* AppDelegate.swift in Sources */,
 				FFA0634B27FC1C3F00DC9ADA /* TableSettings.swift in Sources */,
 			);
