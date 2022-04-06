@@ -1,22 +1,13 @@
 import UIKit
 
-class SwitchTableViewCell: UITableViewCell {
+class ImageTableViewCell: UITableViewCell {
     
-    static let identifier = "SwitchTableViewCell"
+    static let identifier = "ImageTableViewCell"
     
-    // MARK: - Configuration
-    
-    public func configure(with model: SettingsSwitchOption) {
-        nameSetting.text = model.title
-        settingImageView.image = UIImage(systemName: model.icon)
-        settingImageView.backgroundColor = UIColor(named: model.iconBackgroundColor)
-        additionalSwitch.isOn = model.isOn
-    }
-    
-    // MARK: - View
+    // MARK: - Elements
     
     private let settingImageViewContainer: UIView = {
-       let view = UIView()
+        let view = UIView()
         view.layer.cornerRadius = 10
         return view
     }()
@@ -39,10 +30,18 @@ class SwitchTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let additionalSwitch: UISwitch = {
-        let mySwitch = UISwitch()
-        mySwitch.contentMode = .center
-        return mySwitch
+    private let additionalImageContainer: UIView = {
+        let view = UIView()
+        view.layer.cornerRadius = 10
+        return view
+    }()
+    
+    private let additionalImage: UIImageView = {
+        let img = UIImageView()
+        img.contentMode = .scaleAspectFit
+        img.translatesAutoresizingMaskIntoConstraints = false
+        img.tintColor = .red
+        return img
     }()
     
     private var stackView: UIStackView = {
@@ -72,16 +71,17 @@ class SwitchTableViewCell: UITableViewCell {
         settingImageView.image = nil
         nameSetting.text = nil
         settingImageViewContainer.backgroundColor = nil
-        additionalSwitch.isOn = false
+        additionalImage.image = nil
     }
     
-    // MARK: - Settings
+    // MARK: - Private functions
     
     private func setupHierarchy() {
         contentView.addSubview(stackView)
         stackView.addArrangedSubview(settingImageViewContainer)
         stackView.addArrangedSubview(nameSetting)
-        stackView.addArrangedSubview(additionalSwitch)
+        stackView.addArrangedSubview(additionalImageContainer)
+        additionalImageContainer.addSubview(additionalImage)
         settingImageViewContainer.addSubview(settingImageView)
     }
     
@@ -101,10 +101,26 @@ class SwitchTableViewCell: UITableViewCell {
             settingImageView.heightAnchor.constraint(equalToConstant: 35),
             nameSetting.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
             nameSetting.leftAnchor.constraint(equalTo: settingImageViewContainer.rightAnchor, constant: 5),
-            nameSetting.trailingAnchor.constraint(equalTo: additionalSwitch.leadingAnchor),
-            additionalSwitch.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 6),
-            additionalSwitch.rightAnchor.constraint(equalTo: stackView.rightAnchor)
+            nameSetting.rightAnchor.constraint(equalTo: additionalImageContainer.leftAnchor),
+            additionalImageContainer.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
+            additionalImageContainer.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
+            additionalImageContainer.widthAnchor.constraint(equalToConstant: 20),
+            additionalImageContainer.heightAnchor.constraint(equalToConstant: 20),
+            additionalImage.centerYAnchor.constraint(equalTo: additionalImageContainer.centerYAnchor),
+            additionalImage.trailingAnchor.constraint(equalTo: additionalImageContainer.trailingAnchor),
+            additionalImage.widthAnchor.constraint(equalToConstant: 30),
+            additionalImage.heightAnchor.constraint(equalToConstant: 30)
         ])
     }
+    
+    // MARK: - Configuration
+    
+    public func configure(with model: SettingsImageOption) {
+        nameSetting.text = model.title
+        settingImageView.image = UIImage(systemName: model.icon)
+        settingImageView.backgroundColor = UIColor(named: model.iconBackgroundColor)
+        additionalImage.image = UIImage(systemName: model.additionImage)
+    }
 }
+
 

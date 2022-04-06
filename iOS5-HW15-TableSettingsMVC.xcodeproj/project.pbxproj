@@ -47,6 +47,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF7AF11127FDC37E000E0A95 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FF72C41B27FC427B009343D6 /* CommonTableViewCell.swift */,
+				FF72C41D27FC428F009343D6 /* SwitchTableViewCell.swift */,
+				FF72C41F27FC42A1009343D6 /* ImageTableViewCell.swift */,
+			);
+			path = TableViewCell;
+			sourceTree = "<group>";
+		};
 		FFA0632127FC1A7D00DC9ADA = {
 			isa = PBXGroup;
 			children = (
@@ -122,9 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				FF72C41927FC4256009343D6 /* TableSettingsView.swift */,
-				FF72C41B27FC427B009343D6 /* CommonTableViewCell.swift */,
-				FF72C41D27FC428F009343D6 /* SwitchTableViewCell.swift */,
-				FF72C41F27FC42A1009343D6 /* ImageTableViewCell.swift */,
+				FF7AF11127FDC37E000E0A95 /* TableViewCell */,
 			);
 			path = View;
 			sourceTree = "<group>";

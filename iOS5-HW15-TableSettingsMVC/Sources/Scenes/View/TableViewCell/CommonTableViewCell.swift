@@ -1,22 +1,15 @@
 import UIKit
 
-class ImageTableViewCell: UITableViewCell {
+class CommonTableViewCell: UITableViewCell {
     
-    static let identifier = "ImageTableViewCell"
+    static let identifier = "CommonTableViewCell"
     
-    // MARK: - Configuration
-    
-    public func configure(with model: SettingsImageOption) {
-        nameSetting.text = model.title
-        settingImageView.image = UIImage(systemName: model.icon)
-        settingImageView.backgroundColor = UIColor(named: model.iconBackgroundColor)
-        additionalImage.image = UIImage(systemName: model.additionImage)
-    }
-    
-    // MARK: -View
+    // MARK: - Elements
     
     private let settingImageViewContainer: UIView = {
         let view = UIView()
+        view.backgroundColor = .clear
+        view.contentMode = .left
         view.layer.cornerRadius = 10
         return view
     }()
@@ -39,19 +32,12 @@ class ImageTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let additionalImageContainer: UIView = {
-        let view = UIView()
-        view.layer.cornerRadius = 10
-        return view
-    }()
-    
-    private let additionalImage: UIImageView = {
-        let img = UIImageView()
-        img.contentMode = .scaleAspectFit
-        img.translatesAutoresizingMaskIntoConstraints = false
-        img.tintColor = .red
-        return img
-    }()
+    private let additionalLabel: UILabel = {
+        let label = UILabel()
+         label.textAlignment = .right
+         label.textColor = .darkGray
+         return label
+     }()
     
     private var stackView: UIStackView = {
         let stackView = UIStackView()
@@ -70,9 +56,9 @@ class ImageTableViewCell: UITableViewCell {
         contentView.clipsToBounds = true
         accessoryType = .disclosureIndicator
     }
-    
-    required init?(coder: NSCoder) {
-        fatalError()
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
     }
     
     override func prepareForReuse() {
@@ -80,17 +66,16 @@ class ImageTableViewCell: UITableViewCell {
         settingImageView.image = nil
         nameSetting.text = nil
         settingImageViewContainer.backgroundColor = nil
-        additionalImage.image = nil
+        additionalLabel.text = String()
     }
     
-    // MARK: - Settings
+    // MARK: - Private functions
     
     private func setupHierarchy() {
         contentView.addSubview(stackView)
         stackView.addArrangedSubview(settingImageViewContainer)
         stackView.addArrangedSubview(nameSetting)
-        stackView.addArrangedSubview(additionalImageContainer)
-        additionalImageContainer.addSubview(additionalImage)
+        stackView.addArrangedSubview(additionalLabel)
         settingImageViewContainer.addSubview(settingImageView)
     }
     
@@ -110,17 +95,26 @@ class ImageTableViewCell: UITableViewCell {
             settingImageView.heightAnchor.constraint(equalToConstant: 35),
             nameSetting.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
             nameSetting.leftAnchor.constraint(equalTo: settingImageViewContainer.rightAnchor, constant: 5),
-            nameSetting.rightAnchor.constraint(equalTo: additionalImageContainer.leftAnchor),
-            additionalImageContainer.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
-            additionalImageContainer.trailingAnchor.constraint(equalTo: stackView.trailingAnchor),
-            additionalImageContainer.widthAnchor.constraint(equalToConstant: 20),
-            additionalImageContainer.heightAnchor.constraint(equalToConstant: 20),
-            additionalImage.centerYAnchor.constraint(equalTo: additionalImageContainer.centerYAnchor),
-            additionalImage.trailingAnchor.constraint(equalTo: additionalImageContainer.trailingAnchor),
-            additionalImage.widthAnchor.constraint(equalToConstant: 30),
-            additionalImage.heightAnchor.constraint(equalToConstant: 30)
+            nameSetting.trailingAnchor.constraint(equalTo: additionalLabel.leadingAnchor),
+            additionalLabel.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
+            additionalLabel.rightAnchor.constraint(equalTo: stackView.rightAnchor)
         ])
     }
+    
+    // MARK: - Configuration
+    
+    public func configure(with model: SettingsOption) {
+        nameSetting.text = model.title
+        settingImageView.image = UIImage(systemName: model.icon)
+        settingImageView.backgroundColor = UIColor(named: model.iconBackgroundColor)
+        
+        switch nameSetting.text {
+        case "Wi-Fi":
+            additionalLabel.text = "Не подключено"
+        case "Bluetooth":
+            additionalLabel.text = "Вкл."
+        default:
+            break
+        }
+    }
 }
-
-

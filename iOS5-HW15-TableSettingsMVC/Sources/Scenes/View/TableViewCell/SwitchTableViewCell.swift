@@ -1,32 +1,13 @@
 import UIKit
 
-class CommonTableViewCell: UITableViewCell {
+class SwitchTableViewCell: UITableViewCell {
     
-    static let identifier = "CommonTableViewCell"
+    static let identifier = "SwitchTableViewCell"
     
-    // MARK: - Configuration
-    
-    public func configure(with model: SettingsOption) {
-        nameSetting.text = model.title
-        settingImageView.image = UIImage(systemName: model.icon)
-        settingImageView.backgroundColor = UIColor(named: model.iconBackgroundColor)
-        
-        switch nameSetting.text {
-        case "Wi-Fi":
-            additionalLabel.text = "Не подключено"
-        case "Bluetooth":
-            additionalLabel.text = "Вкл."
-        default:
-            break
-        }
-    }
-    
-    // MARK: - Views
+    // MARK: - Elements
     
     private let settingImageViewContainer: UIView = {
-        let view = UIView()
-        view.backgroundColor = .clear
-        view.contentMode = .left
+       let view = UIView()
         view.layer.cornerRadius = 10
         return view
     }()
@@ -49,12 +30,11 @@ class CommonTableViewCell: UITableViewCell {
         return label
     }()
     
-    private let additionalLabel: UILabel = {
-        let label = UILabel()
-         label.textAlignment = .right
-         label.textColor = .darkGray
-         return label
-     }()
+    private let additionalSwitch: UISwitch = {
+        let mySwitch = UISwitch()
+        mySwitch.contentMode = .center
+        return mySwitch
+    }()
     
     private var stackView: UIStackView = {
         let stackView = UIStackView()
@@ -73,9 +53,9 @@ class CommonTableViewCell: UITableViewCell {
         contentView.clipsToBounds = true
         accessoryType = .disclosureIndicator
     }
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    
+    required init?(coder: NSCoder) {
+        fatalError()
     }
     
     override func prepareForReuse() {
@@ -83,16 +63,16 @@ class CommonTableViewCell: UITableViewCell {
         settingImageView.image = nil
         nameSetting.text = nil
         settingImageViewContainer.backgroundColor = nil
-        additionalLabel.text = ""
+        additionalSwitch.isOn = false
     }
     
-    // MARK: - Settings
+    // MARK: - Private functions
     
     private func setupHierarchy() {
         contentView.addSubview(stackView)
         stackView.addArrangedSubview(settingImageViewContainer)
         stackView.addArrangedSubview(nameSetting)
-        stackView.addArrangedSubview(additionalLabel)
+        stackView.addArrangedSubview(additionalSwitch)
         settingImageViewContainer.addSubview(settingImageView)
     }
     
@@ -112,9 +92,19 @@ class CommonTableViewCell: UITableViewCell {
             settingImageView.heightAnchor.constraint(equalToConstant: 35),
             nameSetting.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
             nameSetting.leftAnchor.constraint(equalTo: settingImageViewContainer.rightAnchor, constant: 5),
-            nameSetting.trailingAnchor.constraint(equalTo: additionalLabel.leadingAnchor),
-            additionalLabel.centerYAnchor.constraint(equalTo: stackView.centerYAnchor),
-            additionalLabel.rightAnchor.constraint(equalTo: stackView.rightAnchor)
+            nameSetting.trailingAnchor.constraint(equalTo: additionalSwitch.leadingAnchor),
+            additionalSwitch.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 6),
+            additionalSwitch.rightAnchor.constraint(equalTo: stackView.rightAnchor)
         ])
     }
+    
+    // MARK: - Configuration
+    
+    public func configure(with model: SettingsSwitchOption) {
+        nameSetting.text = model.title
+        settingImageView.image = UIImage(systemName: model.icon)
+        settingImageView.backgroundColor = UIColor(named: model.iconBackgroundColor)
+        additionalSwitch.isOn = model.isOn
+    }
 }
+

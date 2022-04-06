@@ -7,19 +7,13 @@
 
 import UIKit
 
-final class TableSettingsView: UIView, UITableViewDataSource, UITableViewDelegate {
-
-    // MARK: - Configuration
-
-    func configureView(with models: [Section]) {
-        self.models = models
-    }
+final class TableSettingsView: UIView {
 
     // MARK: - Private properties
 
     private var models = [Section]()
 
-    // MARK: - Views
+    // MARK: - Elements
 
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
@@ -27,7 +21,7 @@ final class TableSettingsView: UIView, UITableViewDataSource, UITableViewDelegat
         return tableView
     }()
 
-    // MARK: - Initial
+    // MARK: - Lifecycle
 
     init() {
         super.init(frame: .zero)
@@ -46,7 +40,7 @@ final class TableSettingsView: UIView, UITableViewDataSource, UITableViewDelegat
         setupLayout()
     }
 
-    // MARK: - Settings
+    // MARK: - Private functions
 
     private func setupHierarchy() {
         addSubview(tableView)
@@ -69,7 +63,16 @@ final class TableSettingsView: UIView, UITableViewDataSource, UITableViewDelegat
         ])
     }
     
-    // MARK: - DataSource and Delegate
+    // MARK: - Configuration
+
+    func configureView(with models: [Section]) {
+        self.models = models
+    }
+}
+
+// MARK: - UITableViewDataSource
+
+extension TableSettingsView: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return models.count
@@ -104,6 +107,11 @@ final class TableSettingsView: UIView, UITableViewDataSource, UITableViewDelegat
             return cell
         }
     }
+}
+
+// MARK: - UITableViewDelegate
+
+extension TableSettingsView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -118,5 +126,3 @@ final class TableSettingsView: UIView, UITableViewDataSource, UITableViewDelegat
         }
     }
 }
-
-// MARK: - Constants
